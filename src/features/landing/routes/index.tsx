@@ -1,7 +1,7 @@
-import { LandingPage } from "../pages/landing";
+import { LandingPage } from '../pages/landing';
 
 export const landingPageRoutes = {
-  LANDING: "/landing",
+  LANDING: '/landing',
 };
 
 export const landingRoutes = [
