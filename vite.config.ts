@@ -1,6 +1,8 @@
-import { defineConfig, loadEnv, type ConfigEnv } from "vite";
-import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import path from 'path';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 // export default defineConfig({
@@ -17,12 +19,17 @@ export default defineConfig(({ mode }) => {
     server: {
       port: Number(env.VITE_PORT) || 7000, // convert to number, fallback to 7000
       proxy: {
-        "/api": env.VITE_API,
+        '/api': env.VITE_API,
       },
     },
     build: {
-      outDir: "public",
+      outDir: 'public',
     },
-    plugins: [react(), tsconfigPaths()],
+    plugins: [react(), tsconfigPaths(), tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
   };
 });
