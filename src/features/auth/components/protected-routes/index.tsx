@@ -1,5 +1,5 @@
-import { Navigate, Outlet } from "react-router";
-import { landingPageRoutes } from "../../../landing/routes";
+import { Navigate, Outlet } from 'react-router';
+import { landingPageRoutes } from '../../../landing/routes';
 
 export const ProtectedRoutes = () => {
   const isAuthenticated = false; // TODO Replace with actual authentication logic
