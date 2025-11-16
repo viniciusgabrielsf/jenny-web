@@ -1,11 +1,15 @@
 import { Button } from '@/components/button';
 import { ModeToggle } from '@/components/mode-toggler';
+import { signUpPageRoutes } from '@/features/auth/routes/sign-up';
+import { useNavigate } from 'react-router';
 
 type Props = {
   className?: string;
 };
 
 export const Header = ({ className }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <header className={`flex justify-between items-center bg-transparent p-3 ${className}`}>
       <div className="flex items-center gap-2">
@@ -15,7 +19,9 @@ export const Header = ({ className }: Props) => {
       </div>
 
       <div className="flex items-center gap-2">
-        <Button variant="secondary">Cadastrar</Button>
+        <Button variant="secondary" onClick={() => navigate(signUpPageRoutes.SING_UP)}>
+          Cadastrar
+        </Button>
         <Button>Login</Button>
         <ModeToggle />
       </div>
