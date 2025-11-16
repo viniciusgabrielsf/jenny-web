@@ -57,9 +57,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
-body > *,
-#root > * {
+/* 
+  root > router > main page of the route
+  if this stop working, set to root > div (bc the Toaster is a section)
+*/
+#root {
   min-height: 100vh;
   min-width: max(100%, 320px);
 }
