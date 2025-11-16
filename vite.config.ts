@@ -4,14 +4,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'path';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react(), tsconfigPaths()],
-//   server: {
-//     port: 7000, // Set your desired port here
-//   },
-// });
-
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
@@ -25,7 +17,15 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'public',
     },
-    plugins: [react(), tsconfigPaths(), tailwindcss()],
+    plugins: [
+      react({
+        babel: {
+          plugins: ['babel-plugin-react-compiler'],
+        },
+      }),
+      tsconfigPaths(),
+      tailwindcss(),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
