@@ -3,6 +3,7 @@ import { publicRoutes } from './routes/public-routes';
 import { authenticatedRoutes } from './routes/authenticated-routes';
 import { ProtectedRoutes } from './features/auth/components/protected-routes';
 import { ThemeProvider } from './components/theme-provider';
+import { Toaster } from '@/components/sonner';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route element={<>404! page not found!</>} />
         </Routes>
       </BrowserRouter>
+      <Toaster />
     </ThemeProvider>
   );
 }
