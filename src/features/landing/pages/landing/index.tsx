@@ -1,9 +1,14 @@
 import { Button } from '@/components/button';
-import { Header } from '../../components/Header';
+import { Header } from '../../../../components/header';
+import { useNavigate } from 'react-router';
+import { signUpPageRoutes } from '@/features/auth/routes/sign-up';
+import { Page } from '@/components/page';
 // TODO test buttons when they are functional
 export const LandingPage = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col bg-linear-to-b from-background from-55% to-secondary/40 text-center">
+    <Page>
       <Header />
 
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
@@ -20,12 +25,12 @@ export const LandingPage = () => {
         </p>
 
         <div className="flex items-center gap-4 py-10">
-          <Button variant="secondary" size="xl">
+          <Button variant="secondary" size="xl" onClick={() => navigate(signUpPageRoutes.SING_UP)}>
             Cadastrar
           </Button>
           <Button size="xl">Login</Button>
         </div>
       </main>
-    </div>
+    </Page>
   );
 };
