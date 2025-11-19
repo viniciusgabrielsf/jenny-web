@@ -2,11 +2,11 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@components/field';
 import { Input } from '@components/input';
-import { BirthDatePicker } from '../birth-date-picker';
-import { PasswordInput } from '../password-input';
+import { BirthDatePicker } from './birth-date-picker';
+import { PasswordInput } from './password-input';
 import { Button } from '@components/button';
 import { Card, CardAction, CardTitle } from '@components/card';
-import { signUpSchema, type SignUpSchemaType } from '../../helpers/sign-up-schema';
+import { signUpSchema, type SignUpSchemaType } from '../helpers/sign-up-schema';
 
 type Props = {
   className: string;

@@ -1,8 +1,8 @@
 import { Header } from '@components/header';
-import { SignUpForm } from '../../components/sign-up-form';
+import { SignUpForm } from '../components/sign-up-form';
 import { Page } from '@components/page';
-import { useSignUpPage } from '../../hooks/use-sign-up-page';
-import type { SignUpSchemaType } from '../../helpers/sign-up-schema';
+import { useSignUpPage } from '../hooks/use-sign-up-page';
+import type { SignUpSchemaType } from '../helpers/sign-up-schema';
 import moment from 'moment';
 import { toast } from 'sonner';
 
