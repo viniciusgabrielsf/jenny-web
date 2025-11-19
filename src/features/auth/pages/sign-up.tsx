@@ -4,21 +4,14 @@ import { Page } from '@components/page';
 import { useSignUpPage } from '../hooks/use-sign-up-page';
 import type { SignUpSchemaType } from '../helpers/sign-up-schema';
 import moment from 'moment';
-import { toast } from 'sonner';
 
 export const SignUpPage = () => {
   const { signUp } = useSignUpPage();
 
   const onSubmit = (value: SignUpSchemaType) => {
-    const promise = signUp.mutateAsync({
+    signUp.mutate({
       ...value,
       birthDate: moment(value.birthDate).format('YYYY-MM-DD'),
-    });
-
-    toast.promise(promise, {
-      loading: 'Cadastrando...',
-      success: 'Cadastrado com sucesso!',
-      error: 'Erro ao cadastrar. Tente novamente.',
     });
   };
 
