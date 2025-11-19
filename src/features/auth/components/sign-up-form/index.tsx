@@ -1,21 +1,20 @@
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'sonner';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/field';
 import { Input } from '@/components/input';
 import { BirthDatePicker } from '../birth-date-picker';
 import { PasswordInput } from '../password-input';
 import { Button } from '@/components/button';
 import { Card, CardAction, CardTitle } from '@/components/card';
-import { signUpSchema, type signUpSchemaType } from '../../helpers/sign-up-schema';
+import { signUpSchema, type SignUpSchemaType } from '../../helpers/sign-up-schema';
 
 type Props = {
   className: string;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: SignUpSchemaType) => void;
 };
 
 export const SignUpForm = ({ onSubmit, className }: Props) => {
-  const form = useForm<signUpSchemaType>({
+  const form = useForm<SignUpSchemaType>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
       fullName: '',
@@ -26,29 +25,11 @@ export const SignUpForm = ({ onSubmit, className }: Props) => {
     },
   });
 
-  // TODO remover
-  function myOnSubmit(data: signUpSchemaType) {
-    toast('You submitted the following values:', {
-      description: (
-        <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: 'bottom-right',
-      classNames: {
-        content: 'flex flex-col gap-2',
-      },
-      style: {
-        '--border-radius': 'calc(var(--radius)  + 4px)',
-      } as React.CSSProperties,
-    });
-  }
-
   return (
     <Card className={className}>
       <CardTitle className="text-2xl">Cadastre-se para começar</CardTitle>
 
-      <form onSubmit={form.handleSubmit(myOnSubmit)}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <FieldGroup>
           <Controller
             name="fullName"
