@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { publicRoutes } from './routes/public-routes';
 import { authenticatedRoutes } from './routes/authenticated-routes';
-import { ProtectedRoutes } from './features/auth/components/protected-routes';
+import { ProtectedRoutes } from '@features/auth/components/protected-routes';
 import { ThemeProvider } from './components/theme-provider';
-import { Toaster } from '@/components/sonner';
+import { Toaster } from '@components/sonner';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {

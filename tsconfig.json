@@ -5,16 +5,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@/features/*": ["src/features/*"],
-      "@/landing/*": ["src/features/landing/*"],
-      "@/auth/*": ["src/features/auth/*"]
-
-      // "@/app/*": ["src/app/*"],
-      // "@/pages/*": ["src/pages/*"],
-      // "@/widgets/*": ["src/widgets/*"],
-
-      // "@/entities/*": ["src/entities/*"],
-      // "@/shared/*": ["src/shared/*"]
+      "@features/*": ["src/features/*"],
+      "@api/*": ["src/api/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@lib/*": ["src/lib/*"],
+      "@routes/*": ["src/routes/*"]
     },
     "strict": true
     //... other options

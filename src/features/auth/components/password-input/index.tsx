@@ -1,7 +1,7 @@
-import { Field, FieldError, FieldLabel } from '@/components/field';
+import { Field, FieldError, FieldLabel } from '@components/field';
 import type { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
-import { Input } from '@/components/input';
-import { Button } from '@/components/button';
+import { Input } from '@components/input';
+import { Button } from '@components/button';
 import { EyeClosedIcon, EyeIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 

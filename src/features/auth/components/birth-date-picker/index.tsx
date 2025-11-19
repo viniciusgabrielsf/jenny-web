@@ -1,11 +1,11 @@
 import * as React from 'react';
 import moment from 'moment';
-import { Calendar } from '@/components/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/popover';
-import { Field, FieldError, FieldLabel } from '@/components/field';
+import { Calendar } from '@components/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@components/popover';
+import { Field, FieldError, FieldLabel } from '@components/field';
 import type { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
-import { Input } from '@/components/input';
-import { Button } from '@/components/button';
+import { Input } from '@components/input';
+import { Button } from '@components/button';
 import { CalendarDotsIcon } from '@phosphor-icons/react';
 
 type Props = {

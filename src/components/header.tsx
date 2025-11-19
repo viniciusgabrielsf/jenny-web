@@ -1,6 +1,6 @@
-import { Button } from '@/components/button';
-import { ModeToggle } from '@/components/mode-toggler';
-import { signUpPageRoutes } from '@/features/auth/routes/sign-up';
+import { Button } from '@components/button';
+import { ModeToggle } from '@components/mode-toggler';
+import { signUpPageRoutes } from '@features/auth/routes/sign-up';
 import { useNavigate } from 'react-router';
 
 type Props = {
