@@ -12,6 +12,7 @@ export const LandingPage = () => {
       <Header />
 
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
+        {/* TODO extract this logo -> title to <LogoTitle /> shared component */}
         <div className="flex items-center gap-4">
           <img src="/logo.svg" alt="Lâmpada mágica" className="w-30 h-30 sm:w-50 sm:h-50" />
           <h1 className="text-6xl sm:text-8xl font-bold">Jenny</h1>
