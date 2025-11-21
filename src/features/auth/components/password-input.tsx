@@ -33,6 +33,7 @@ export function PasswordInput({ field, fieldState, label, placeholder }: Props) 
           size="icon"
           variant="outline"
           aria-invalid={fieldState.invalid}
+          aria-label={hidden ? 'Mostrar senha' : 'Esconder senha'}
           onClick={() => setHidden(!hidden)}
         >
           {hidden ? <EyeClosedIcon size={32} weight="light" /> : <EyeIcon size={32} weight="light" />}

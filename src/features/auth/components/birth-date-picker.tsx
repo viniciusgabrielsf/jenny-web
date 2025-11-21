@@ -30,13 +30,19 @@ export function BirthDatePicker({ field, fieldState, setValue, placeholder }: Pr
             <Input
               {...field}
               type="text"
-              placeholder={placeholder}
+              placeholder={placeholder || 'Selecione sua data de nascimento'}
               autoComplete="off"
               value={field.value ? moment(field.value).format('DD/MM/YYYY') : ''}
               id={field.name}
               aria-invalid={fieldState.invalid}
             />
-            <Button type="button" size="icon" variant="outline" aria-invalid={fieldState.invalid}>
+            <Button
+              type="button"
+              size="icon"
+              variant="outline"
+              aria-label={placeholder || 'Selecione sua data de nascimento'}
+              aria-invalid={fieldState.invalid}
+            >
               <CalendarDotsIcon size={32} weight="duotone" />
             </Button>
           </span>
