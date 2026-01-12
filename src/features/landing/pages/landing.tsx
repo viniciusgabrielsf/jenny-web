@@ -3,6 +3,7 @@ import { Header } from '@components/header';
 import { useNavigate } from 'react-router';
 import { signUpPageRoutes } from '@features/auth/routes/sign-up';
 import { Page } from '@components/page';
+import { logInPageRoutes } from '@/features/auth/routes/log-in';
 // TODO test buttons when they are functional
 export const LandingPage = () => {
   const navigate = useNavigate();
@@ -29,7 +30,9 @@ export const LandingPage = () => {
           <Button variant="secondary" size="xl" onClick={() => navigate(signUpPageRoutes.SING_UP)}>
             Cadastrar
           </Button>
-          <Button size="xl">Login</Button>
+          <Button size="xl" onClick={() => navigate(logInPageRoutes.LOG_IN)}>
+            Entrar
+          </Button>
         </div>
       </main>
     </Page>

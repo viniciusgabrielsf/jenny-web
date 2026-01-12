@@ -1,3 +1,4 @@
+import { logInPageRoutes } from '@/features/auth/routes/log-in';
 import { Button } from '@components/button';
 import { ModeToggle } from '@components/mode-toggler';
 import { signUpPageRoutes } from '@features/auth/routes/sign-up';
@@ -22,7 +23,7 @@ export const Header = ({ className }: Props) => {
         <Button variant="secondary" onClick={() => navigate(signUpPageRoutes.SING_UP)}>
           Cadastrar
         </Button>
-        <Button>Login</Button>
+        <Button onClick={() => navigate(logInPageRoutes.LOG_IN)}>Entrar</Button>
         <ModeToggle />
       </div>
     </header>

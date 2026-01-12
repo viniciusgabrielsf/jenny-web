@@ -104,7 +104,9 @@ export const SignUpForm = ({ onSubmit, className }: Props) => {
           />
 
           <CardAction className="w-full flex">
-            <Button type="submit">Cadastrar</Button>
+            <Button variant="secondary" type="submit">
+              Cadastrar
+            </Button>
           </CardAction>
         </FieldGroup>
       </form>
