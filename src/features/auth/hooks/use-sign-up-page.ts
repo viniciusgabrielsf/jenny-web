@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useMutation } from '@tanstack/react-query';
-import { signUpClient, type SignUpRequest } from '../api/sign-up-client';
+import { userClient, type SignUpRequest } from '../api/user-client';
 import { toast } from 'sonner';
 
 export const useSignUpPage = () => {
@@ -11,7 +11,7 @@ export const useSignUpPage = () => {
     mutationFn: async (request: SignUpRequest) => {
       toast.loading('Criando conta...', { id: 'sign-up-loading' });
 
-      return signUpClient.signUp(request);
+      return userClient.signUp(request);
     },
     onSuccess: () => {
       toast.dismiss('sign-up-loading  ');
