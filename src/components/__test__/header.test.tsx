@@ -43,7 +43,7 @@ describe('Header', () => {
     it('should render Login button without navigation (not yet implemented)', () => {
       render(<Header />);
 
-      const loginButton = screen.getByRole('button', { name: /login/i });
+      const loginButton = screen.getByRole('button', { name: /entrar/i });
       expect(loginButton).toBeInTheDocument();
       // Login button exists but doesn't have onClick handler yet (as per component code)
     });
