@@ -1,6 +1,6 @@
-import { Header } from '@components/header';
+import { Header } from '@/components/pages/header';
 import { LogInForm } from '../components/log-in-form';
-import { Page } from '@components/page';
+import { Page } from '@/components/pages/page';
 import { useLogInPage } from '../hooks/use-log-in-page';
 import type { LogInSchemaType } from '../helpers/log-in-schema';
 

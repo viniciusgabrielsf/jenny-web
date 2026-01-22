@@ -1,6 +1,6 @@
-import { Header } from '@components/header';
+import { Header } from '@/components/pages/header';
 import { SignUpForm } from '../components/sign-up-form';
-import { Page } from '@components/page';
+import { Page } from '@/components/pages/page';
 import { useSignUpPage } from '../hooks/use-sign-up-page';
 import type { SignUpSchemaType } from '../helpers/sign-up-schema';
 import moment from 'moment';

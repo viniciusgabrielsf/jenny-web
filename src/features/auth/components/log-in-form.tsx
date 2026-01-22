@@ -2,7 +2,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Field, FieldError, FieldGroup, FieldLabel } from '@components/field';
 import { Input } from '@components/input';
-import { PasswordInput } from './password-input';
+import { PasswordInput } from '../../../components/fields/password-input';
 import { Button } from '@components/button';
 import { Card, CardAction, CardTitle } from '@components/card';
 import { logInSchema, type LogInSchemaType } from '../helpers/log-in-schema';

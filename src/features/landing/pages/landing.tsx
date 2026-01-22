@@ -1,8 +1,8 @@
 import { Button } from '@components/button';
-import { Header } from '@components/header';
+import { Header } from '@/components/pages/header';
 import { useNavigate } from 'react-router';
 import { signUpPageRoutes } from '@features/auth/routes/sign-up';
-import { Page } from '@components/page';
+import { Page } from '@/components/pages/page';
 import { logInPageRoutes } from '@/features/auth/routes/log-in';
 // TODO test buttons when they are functional
 export const LandingPage = () => {
