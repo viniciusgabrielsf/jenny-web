@@ -54,7 +54,7 @@ export const LogInForm = ({ onSubmit, className }: Props) => {
             )}
           />
 
-          <CardAction className="w-full flex">
+          <CardAction className="w-full flex justify-end">
             <Button type="submit">Entrar</Button>
           </CardAction>
         </FieldGroup>
