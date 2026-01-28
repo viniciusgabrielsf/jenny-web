@@ -20,7 +20,7 @@ export function UserOptions() {
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => navigate(profilePageRoutes.PROFILE)}>
-          <UserIcon size={32} /> Perfil
+          <UserIcon size={32} weight="duotone" /> Perfil
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => logOut.mutate()}>
           <SignOutIcon size={32} /> Sair
