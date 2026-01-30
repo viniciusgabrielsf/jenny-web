@@ -36,7 +36,7 @@ export function AvatarPicker({ field, fieldState, setValue }: Props) {
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <span className="flex gap-2">
+          <button className="flex gap-2">
             <Input
               {...field}
               type="text"
@@ -47,7 +47,7 @@ export function AvatarPicker({ field, fieldState, setValue }: Props) {
               className="hidden"
             />
             <Avatar size="lg" className="cursor-pointer">
-              <AvatarImage src={getAvatarFullPathById(field.value)}></AvatarImage>
+              <AvatarImage src={getAvatarFullPathById(field.value)} alt="foto de perfil do usuário"></AvatarImage>
               <AvatarFallback>
                 <UserIcon size={64} weight="light" />
               </AvatarFallback>
@@ -56,7 +56,7 @@ export function AvatarPicker({ field, fieldState, setValue }: Props) {
                 <PencilSimpleIcon weight="light" />
               </AvatarBadge>
             </Avatar>
-          </span>
+          </button>
         </DialogTrigger>
 
         <DialogContent className="table max-w-[80vw] max-h-[80vh]">
@@ -68,18 +68,19 @@ export function AvatarPicker({ field, fieldState, setValue }: Props) {
           <div className="w-max max-w-[80vw] max-h-[80vh] overflow-y-auto no-scrollbar px-4 gap-4 grid grid-cols-2 md:grid-cols-4">
             {avatars.map(avatar => {
               return (
-                <div
+                <button
                   className="cursor-pointer"
                   key={avatar.id}
+                  name={avatar.id}
                   onClick={() => {
                     setValue(avatar.id);
                     setOpen(false);
                   }}
                 >
                   <Avatar size={mobileWidthMatches ? 'lg' : 'xl'}>
-                    <AvatarImage src={getAvatarFullPathById(avatar.id)}></AvatarImage>
+                    <AvatarImage src={getAvatarFullPathById(avatar.id)} alt={avatar.alt}></AvatarImage>
                   </Avatar>
-                </div>
+                </button>
               );
             })}
           </div>

@@ -1,23 +1,37 @@
 import { Header } from '@/components/pages/header';
 import { Page } from '@/components/pages/page';
+import moment from 'moment';
+import { useProfileUpdate } from '../hooks/use-profile-update';
+import type { ProfileUpdateSchemaType } from '../helpers/profile-update-schema';
+import { ProfileUpdateForm } from '../components/profile-update-form';
+import { usePasswordUpdate } from '../hooks/use-password-update';
+import type { PasswordUpdateSchemaType } from '../helpers/password-update-schema';
+import { PasswordUpdateForm } from '../components/password-update-form';
 
 export const ProfilePage = () => {
+  const { profileUpdate } = useProfileUpdate();
+  const { passwordUpdate } = usePasswordUpdate();
+
+  const onSubmitProfile = (value: ProfileUpdateSchemaType) => {
+    profileUpdate.mutate({
+      ...value,
+      birthDate: moment(value.birthDate).format('YYYY-MM-DD'),
+    });
+  };
+
+  const onSubmitPassword = (value: PasswordUpdateSchemaType) => {
+    passwordUpdate.mutate({
+      ...value,
+    });
+  };
+
   return (
     <Page>
       <Header />
-
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
-        <div className="flex items-center gap-4">
-          <img src="/logo.svg" alt="Lâmpada mágica" className="w-30 h-30 sm:w-50 sm:h-50" />
-          <h1 className="text-6xl sm:text-8xl font-bold"> Perfil</h1>
-        </div>
+        <ProfileUpdateForm onSubmit={onSubmitProfile} className="w-[85%] max-w-xl p-4 mb-3" />
 
-        <p className="text-4xl sm:text-6xl font-bold">Transforme o caos financeiro em organização</p>
-
-        <p className="max-w-5xl text-xl sm:text-2xl italic text-muted-foreground">
-          Controle seus gastos, crie metas para seus sonhos e divida as contas com a galera, tudo em um só lugar. A sua
-          vida financeira pessoal e social, finalmente em sincronia.
-        </p>
+        <PasswordUpdateForm onSubmit={onSubmitPassword} className="w-[85%] max-w-xl p-4 mb-3" />
       </main>
     </Page>
   );

@@ -18,6 +18,7 @@ export const avatarPaths = [
 ];
 
 export const avatars = avatarPaths.map(avatarPath => ({
-  id: 'avatar-' + avatarPath.split('.')[0],
+  id: `avatar-${avatarPath.split('.')[0]}`,
   src: avatarPath,
+  alt: `avatar da personagem ${avatarPath.split('.')[0]}`,
 }));
