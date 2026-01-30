@@ -8,8 +8,8 @@ import { API_URL } from '@/mocks/handlers';
 
 const submitFormValidData = async () => {
   const user = userEvent.setup();
-  await user.type(screen.getByLabelText('Nome Completo'), 'John Doe Silva');
-  await user.type(screen.getByLabelText('Email'), 'john.doe@example.com');
+  await user.type(screen.getByLabelText('Nome Completo'), 'Killua Zoldyck');
+  await user.type(screen.getByLabelText('Email'), 'killua.zoldyck@example.com');
 
   const birthDateInput = screen.getByLabelText('Data de Nascimento') as HTMLInputElement;
   await user.click(birthDateInput);
@@ -116,8 +116,8 @@ describe('SignUpPage', () => {
       const emailInput = screen.getByLabelText('Email') as HTMLInputElement;
       const birthDateButton = screen.getByRole('button', { name: /Selecione sua data de nascimento.../i });
 
-      await user.type(fullNameInput, 'John Doe Silva');
-      await user.type(emailInput, 'john.doe@example.com');
+      await user.type(fullNameInput, 'Killua Zoldyck');
+      await user.type(emailInput, 'killua.zoldyck@example.com');
       await user.click(birthDateButton);
       await waitFor(() => {
         const day15 = screen.getByRole('button', { name: /15/i });
@@ -164,8 +164,8 @@ describe('SignUpPage', () => {
       const passwordInput = screen.getByLabelText('Senha') as HTMLInputElement;
       const confirmPasswordInput = screen.getByLabelText('Confirmar senha') as HTMLInputElement;
 
-      await user.type(fullNameInput, 'John Doe Silva');
-      await user.type(emailInput, 'john.doe@example.com');
+      await user.type(fullNameInput, 'Killua Zoldyck');
+      await user.type(emailInput, 'killua.zoldyck@example.com');
       await user.click(birthDateInput);
       await waitFor(() => {
         const day15 = screen.getByRole('button', { name: /15/i });
@@ -174,8 +174,8 @@ describe('SignUpPage', () => {
       await user.type(passwordInput, 'SecurePass123!');
       await user.type(confirmPasswordInput, 'SecurePass123!');
 
-      expect(fullNameInput.value).toBe('John Doe Silva');
-      expect(emailInput.value).toBe('john.doe@example.com');
+      expect(fullNameInput.value).toBe('Killua Zoldyck');
+      expect(emailInput.value).toBe('killua.zoldyck@example.com');
       expect(birthDateInput.value).toBeDefined();
       expect(passwordInput.value).toBe('SecurePass123!');
       expect(confirmPasswordInput.value).toBe('SecurePass123!');
@@ -183,6 +183,14 @@ describe('SignUpPage', () => {
   });
 
   describe('API Integration', () => {
+    it('should show loading toast while submitting', async () => {
+      render(<SignUpPage />);
+
+      await submitFormValidData();
+
+      expect(await screen.findByText(/Criando conta.../i)).toBeInTheDocument();
+    });
+
     it('should successfully submit form with valid data', async () => {
       render(<SignUpPage />);
 
@@ -203,15 +211,6 @@ describe('SignUpPage', () => {
       await submitFormValidData();
 
       expect(await screen.findByText(/Erro ao criar conta/i)).toBeInTheDocument();
-    });
-
-    it('should show loading toast while submitting', async () => {
-      render(<SignUpPage />);
-
-      await submitFormValidData();
-
-      expect(await screen.findByText(/Criando conta.../i)).toBeInTheDocument();
-      expect(await screen.findByText(/Conta criada com sucesso!/i)).toBeInTheDocument();
     });
   });
 });
