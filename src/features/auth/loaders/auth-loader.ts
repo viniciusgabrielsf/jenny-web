@@ -12,6 +12,7 @@ export const authLoader = async () => {
         fullName: user.fullName,
         email: user.email,
         birthDate: new Date(user.birthDate),
+        avatar: user.avatar,
       });
     }
   } catch (error) {

@@ -5,6 +5,7 @@ type User = {
   fullName: string;
   email: string;
   birthDate: Date;
+  avatar?: string;
 };
 
 type UserState = {
