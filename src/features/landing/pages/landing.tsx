@@ -1,5 +1,4 @@
 import { Button } from '@components/button';
-import { Header } from '@/components/pages/header';
 import { useNavigate } from 'react-router';
 import { signUpPageRoutes } from '@features/auth/routes/sign-up';
 import { Page } from '@/components/pages/page';
@@ -10,8 +9,6 @@ export const LandingPage = () => {
 
   return (
     <Page>
-      <Header />
-
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
         {/* TODO extract this logo -> title to <LogoTitle /> shared component */}
         <div className="flex items-center gap-4">

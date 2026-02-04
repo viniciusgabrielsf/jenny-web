@@ -1,4 +1,3 @@
-import { Header } from '@/components/pages/header';
 import { Page } from '@/components/pages/page';
 import moment from 'moment';
 import { useProfileUpdate } from '../hooks/use-profile-update';
@@ -27,7 +26,6 @@ export const ProfilePage = () => {
 
   return (
     <Page>
-      <Header />
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
         <ProfileUpdateForm onSubmit={onSubmitProfile} className="w-[85%] max-w-xl p-4 mb-3" />
 

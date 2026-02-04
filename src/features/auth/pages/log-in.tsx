@@ -1,4 +1,3 @@
-import { Header } from '@/components/pages/header';
 import { LogInForm } from '../components/log-in-form';
 import { Page } from '@/components/pages/page';
 import { useLogInPage } from '../hooks/use-log-in-page';
@@ -13,7 +12,6 @@ export const LogInPage = () => {
 
   return (
     <Page>
-      <Header />
       <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
         <div className="flex items-center gap-4">
           <img src="/logo.svg" alt="Lâmpada mágica" className="w-30 h-30 sm:w-50 sm:h-50" />
