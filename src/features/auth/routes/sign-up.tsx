@@ -1,12 +1,12 @@
 import { SignUpPage } from '../pages/sign-up';
 
 export const signUpPageRoutes = {
-  SING_UP: '/sign-up',
+  SIGN_UP: '/sign-up',
 };
 
 export const signUpRoutes = [
   {
-    path: signUpPageRoutes.SING_UP,
+    path: signUpPageRoutes.SIGN_UP,
     element: <SignUpPage />,
   },
 ];

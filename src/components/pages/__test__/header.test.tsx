@@ -27,7 +27,7 @@ describe('Header', () => {
       const cadastrarButton = screen.getByRole('button', { name: /cadastrar/i });
       await user.click(cadastrarButton);
 
-      expect(mockNavigate).toHaveBeenCalledWith(signUpPageRoutes.SING_UP);
+      expect(mockNavigate).toHaveBeenCalledWith(signUpPageRoutes.SIGN_UP);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 

@@ -9,7 +9,7 @@ const renderWithRoutes = () => {
   return render(
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path={signUpPageRoutes.SING_UP} element={<div>Sign Up Page</div>} />
+      <Route path={signUpPageRoutes.SIGN_UP} element={<div>Sign Up Page</div>} />
     </Routes>
   );
 };

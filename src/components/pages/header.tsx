@@ -25,7 +25,7 @@ export const Header = ({ className }: Props) => {
 
       <div className="flex items-center gap-2">
         <Activity mode={isAuthenticated ? 'hidden' : 'visible'}>
-          <Button variant="secondary" onClick={() => navigate(signUpPageRoutes.SING_UP)}>
+          <Button variant="secondary" onClick={() => navigate(signUpPageRoutes.SIGN_UP)}>
             Cadastrar
           </Button>
           <Button onClick={() => navigate(logInPageRoutes.LOG_IN)}>Entrar</Button>
