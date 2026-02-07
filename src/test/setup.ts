@@ -4,7 +4,13 @@ import { server } from '../mocks/server';
 import { cleanup } from '@testing-library/react';
 import { vi } from 'vitest';
 
-Object.defineProperty(window, 'matchMedia', {
+globalThis.ResizeObserver = class {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
+Object.defineProperty(globalThis, 'matchMedia', {
   writable: true,
   enumerable: true,
   value: vi.fn().mockImplementation(query => ({

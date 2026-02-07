@@ -15,7 +15,7 @@ export const useSignUpPage = () => {
       return userClient.signUp(request);
     },
     onSuccess: () => {
-      toast.dismiss('sign-up-loading  ');
+      toast.dismiss('sign-up-loading');
       toast.success('Conta criada com sucesso!', { id: 'sign-up-success' });
 
       navigate(logInPageRoutes.LOG_IN);

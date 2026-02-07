@@ -26,11 +26,9 @@ export const ProfilePage = () => {
 
   return (
     <Page>
-      <main className="mt-10 gap-10 flex flex-col items-center justify-between h-full ">
-        <ProfileUpdateForm onSubmit={onSubmitProfile} className="w-[85%] max-w-xl p-4 mb-3" />
+      <ProfileUpdateForm onSubmit={onSubmitProfile} className="w-[85%] max-w-xl p-4 mb-3" />
 
-        <PasswordUpdateForm onSubmit={onSubmitPassword} className="w-[85%] max-w-xl p-4 mb-3" />
-      </main>
+      <PasswordUpdateForm onSubmit={onSubmitPassword} className="w-[85%] max-w-xl p-4 mb-3" />
     </Page>
   );
 };

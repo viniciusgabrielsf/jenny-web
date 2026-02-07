@@ -14,8 +14,11 @@ const submitFormValidData = async () => {
   const birthDateInput = screen.getByLabelText('Data de Nascimento') as HTMLInputElement;
   await user.click(birthDateInput);
 
+  const prevMonthButton = screen.getByRole('button', { name: /Go to the Previous Month/i });
+  await user.click(prevMonthButton);
+
   const day15 = await screen.findByRole('button', { name: /15/i });
-  if (day15) user.click(day15);
+  await user.click(day15);
 
   await user.type(screen.getByLabelText('Senha'), 'SecurePass123!');
   await user.type(screen.getByLabelText('Confirmar senha'), 'SecurePass123!');
@@ -114,15 +117,16 @@ describe('SignUpPage', () => {
 
       const fullNameInput = screen.getByLabelText('Nome Completo') as HTMLInputElement;
       const emailInput = screen.getByLabelText('Email') as HTMLInputElement;
-      const birthDateButton = screen.getByRole('button', { name: /Selecione sua data de nascimento.../i });
+      const birthDateInput = screen.getByLabelText('Data de Nascimento') as HTMLInputElement;
 
       await user.type(fullNameInput, 'Killua Zoldyck');
       await user.type(emailInput, 'killua.zoldyck@example.com');
-      await user.click(birthDateButton);
-      await waitFor(() => {
-        const day15 = screen.getByRole('button', { name: /15/i });
-        if (day15) user.click(day15);
-      });
+
+      await user.click(birthDateInput);
+      const prevMonthBtn = screen.getByRole('button', { name: /Go to the Previous Month/i });
+      await user.click(prevMonthBtn);
+      const day15 = await screen.findByRole('button', { name: /15/i });
+      await user.click(day15);
 
       const passwordInput = screen.getByLabelText('Senha');
       const confirmPasswordInput = screen.getByLabelText('Confirmar senha');
@@ -166,11 +170,13 @@ describe('SignUpPage', () => {
 
       await user.type(fullNameInput, 'Killua Zoldyck');
       await user.type(emailInput, 'killua.zoldyck@example.com');
+
       await user.click(birthDateInput);
-      await waitFor(() => {
-        const day15 = screen.getByRole('button', { name: /15/i });
-        if (day15) user.click(day15);
-      });
+      const prevMonthBtn = screen.getByRole('button', { name: /Go to the Previous Month/i });
+      await user.click(prevMonthBtn);
+      const day15 = await screen.findByRole('button', { name: /15/i });
+      await user.click(day15);
+
       await user.type(passwordInput, 'SecurePass123!');
       await user.type(confirmPasswordInput, 'SecurePass123!');
 

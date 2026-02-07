@@ -30,6 +30,9 @@ const submitProfileFormValidData = async () => {
   const birthDateInput = screen.getByLabelText('Data de Nascimento') as HTMLInputElement;
   await user.click(birthDateInput);
 
+  const prevMonthBtn = screen.getByRole('button', { name: /Go to the Previous Month/i });
+  await user.click(prevMonthBtn);
+
   const day10 = await screen.findByRole('button', { name: /10/i });
   if (day10) await user.click(day10);
 
@@ -273,6 +276,9 @@ describe('ProfilePage', () => {
       await user.type(emailInput, 'leorio.paradinight@email.com');
       await user.click(birthDateInput);
       await waitFor(() => {
+        const prevMonthBtn = screen.getByRole('button', { name: /Go to the Previous Month/i });
+        user.click(prevMonthBtn);
+
         const day15 = screen.getByRole('button', { name: /15/i });
         if (day15) user.click(day15);
       });

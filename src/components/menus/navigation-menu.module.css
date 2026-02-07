@@ -1,0 +1,15 @@
+.bar {
+  display: block;
+  width: 0px;
+  height: 1px;
+  background-color: var(--color-foreground);
+  transition: width 0.2s cubic-bezier(0.37, 1.89, 0.59, 0.73);
+}
+
+.active .bar {
+  width: 100%;
+}
+
+.container:hover .bar {
+  width: 100%;
+}
