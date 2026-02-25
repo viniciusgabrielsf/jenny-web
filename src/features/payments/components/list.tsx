@@ -1,8 +1,8 @@
-import type { Transaction } from '../api/transactions-client';
+import type { Payment } from '../api/payments-client';
 import { ListItem } from './list-item';
 
 type Props = {
-  items: Transaction[];
+  items: Payment[];
 };
 
 export const List = ({ items }: Props) => {

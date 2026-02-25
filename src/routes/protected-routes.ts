@@ -1,4 +1,4 @@
 import { profileRoutes } from '@/features/profile/routes/profile';
-import { transactionsRoutes } from '@/features/transactions/routes/transactions';
+import { paymentsRoutes } from '@/features/payments/routes/payments';
 
-export const protectedRoutes = [...profileRoutes, ...transactionsRoutes];
+export const protectedRoutes = [...profileRoutes, ...paymentsRoutes];

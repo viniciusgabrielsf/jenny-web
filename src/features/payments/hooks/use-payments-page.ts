@@ -1,19 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 import { useUserStore } from '@features/auth/stores/user-store';
-import { transactionsClient } from '../api/transactions-client';
+import { paymentsClient } from '../api/payments-client';
 
-export const useTransactionsPage = () => {
+export const usePaymentsPage = () => {
   const user = useUserStore(state => state.user);
 
   const trasactionsQuery = useQuery({
-    queryKey: ['transactions'],
+    queryKey: ['payments'],
     queryFn: async () => {
-      return transactionsClient.getMyTransactions({ filter: { userId: user?.id } });
+      return paymentsClient.getMyPayments({ filter: { userId: user?.id } });
     },
     initialData: [],
   });
 
   return {
-    transactions: trasactionsQuery,
+    payments: trasactionsQuery,
   };
 };

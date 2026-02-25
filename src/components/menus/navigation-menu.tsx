@@ -7,9 +7,9 @@ export function NavigationMenu() {
   return (
     <Card className="self-center p-0 my-0 w-screen rounded-none md:my-2 md:w-auto md:rounded-xl">
       <nav className="grid grid-flow-col auto-cols-fr justify-items-stretch first:rounded-l-xl last:rounded-r-xl overflow-hidden">
-        <NavListItem to="/transactions">
+        <NavListItem to="/payments">
           <CoinsIcon size={20} weight="light" />
-          <p className="text-sm">Transações</p>
+          <p className="text-sm">Pagamentos</p>
         </NavListItem>
 
         <NavListItem to="/dashboard">
