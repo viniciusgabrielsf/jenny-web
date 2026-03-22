@@ -26,6 +26,7 @@ export const useLogInPage = () => {
         fullName: data.fullName,
         email: data.email,
         birthDate: new Date(data.birthDate),
+        avatar: data.avatar,
       });
 
       toast.dismiss('log-in-loading');

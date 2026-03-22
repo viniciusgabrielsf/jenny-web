@@ -10,6 +10,7 @@ export type LogInResponse = {
   fullName: string;
   email: string;
   birthDate: string;
+  avatar?: string;
 };
 
 export const authEndpoints = {
