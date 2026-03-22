@@ -4,6 +4,9 @@ import { useUserStore } from '../stores/user-store';
 
 export const authLoader = async () => {
   try {
+    let { isAuthenticated } = useAuthStore.getState();
+    if (isAuthenticated) return;
+
     const user = await userClient.me();
     if (user) {
       useAuthStore.getState().setIsAuthenticated(true);
