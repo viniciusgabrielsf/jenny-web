@@ -15,7 +15,7 @@ export const Page = ({ className, hideHeader = false, hideMenu = false, children
 
   return (
     <div
-      className={`flex flex-col bg-linear-to-b from-background from-55% to-secondary/40 text-center h-screen min-w-[max(100%,320px)]`}
+      className={`flex flex-col bg-linear-to-b from-background from-55% to-secondary/40 h-screen min-w-[max(100%,320px)]`}
     >
       {!hideHeader && <Header />}
 
