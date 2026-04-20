@@ -48,6 +48,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --scrollbar-size: 10px;
+  --scrollbar-track: color-mix(in oklab, var(--foreground) 8%, transparent);
+  --scrollbar-thumb: color-mix(in oklab, var(--foreground) 28%, transparent);
+  --scrollbar-thumb-hover: color-mix(in oklab, var(--foreground) 40%, transparent);
 }
 
 body {
@@ -183,12 +187,54 @@ button:focus-visible {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --scrollbar-track: color-mix(in oklab, var(--foreground) 10%, transparent);
+  --scrollbar-thumb: color-mix(in oklab, var(--foreground) 32%, transparent);
+  --scrollbar-thumb-hover: color-mix(in oklab, var(--foreground) 48%, transparent);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+    background-clip: content-box;
+  }
+
+  [data-slot='scroll-area-scrollbar'] {
+    background: var(--scrollbar-track);
+  }
+
+  [data-slot='scroll-area-thumb'] {
+    background: var(--scrollbar-thumb) !important;
+  }
+
+  [data-slot='scroll-area-thumb']:hover {
+    background: var(--scrollbar-thumb-hover) !important;
+  }
+
   body {
     @apply bg-background text-foreground;
   }
