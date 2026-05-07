@@ -1,8 +1,9 @@
 import { usePaymentsPage } from '../hooks/use-payments-page';
 import { List } from '../components/list';
+import { Page } from '@/components/pages/page';
 
 export const PaymentsPage = () => {
-  const { payments } = usePaymentsPage();
+  const { payments, pagination } = usePaymentsPage();
 
   if (payments.isLoading) {
     return <p>Carregando pagamentos...</p>;
@@ -13,9 +14,9 @@ export const PaymentsPage = () => {
   }
 
   return (
-    <div>
+    <Page className={'gap-0'}>
       <h2>Pagamentos</h2>
-      <List items={payments.data}></List>
-    </div>
+      <List items={payments.data.items} pagination={pagination}></List>
+    </Page>
   );
 };
