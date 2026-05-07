@@ -86,6 +86,8 @@
 - Use `cn()` to merge class names (see [src/lib/utils.ts](src/lib/utils.ts)) and `cva()` for variants.
 - Prefer Radix primitives wrapped in shared components (see [src/components/dialog.tsx](src/components/dialog.tsx)).
 - Theme is controlled by [src/components/theme-provider.tsx](src/components/theme-provider.tsx); keep `Toaster` inside it (see [src/components/sonner.tsx](src/components/sonner.tsx)).
+- Prefer phospor icons for UI consistency, but lucide-react is also available; keep icon sizes and weights consistent in a view.
+- prefer shadcn components for common patterns, but customize with Tailwind as needed; avoid one-off custom components when a shared component can be adapted, ask if needed to add a new component so we can add a shadcn one.
 
 ## Dates and formatting
 
