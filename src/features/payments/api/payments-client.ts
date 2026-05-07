@@ -3,6 +3,7 @@ import type { IListOptions } from '@/api/interfaces';
 
 export type PaymentsFilter = {
   userId: string;
+  date: string;
 };
 
 export type Payment = {
@@ -15,11 +16,18 @@ export type Payment = {
   status: string;
 };
 
+export type PaymentsListResponse = {
+  items: Payment[];
+  total: number;
+};
+
 export const paymentsEndpoints = {
   GET_PAYMENTS: '/payments/me',
 };
 
 export const paymentsClient = {
-  getMyPayments: async (request: IListOptions<PaymentsFilter>): Promise<Payment[]> =>
-    apiClient.get<Payment[]>(paymentsEndpoints.GET_PAYMENTS, { params: request }).then(response => response.data),
+  getMyPayments: async (request: IListOptions<PaymentsFilter>): Promise<PaymentsListResponse> =>
+    apiClient
+      .get<PaymentsListResponse>(paymentsEndpoints.GET_PAYMENTS, { params: request })
+      .then(response => response.data),
 };
