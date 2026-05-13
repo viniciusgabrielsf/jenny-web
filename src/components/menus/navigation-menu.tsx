@@ -1,4 +1,4 @@
-import { ChartLineUpIcon, CoinsIcon, UserIcon } from '@phosphor-icons/react';
+import { ChartLineUpIcon, CoinsIcon, UserIcon, UsersIcon } from '@phosphor-icons/react';
 import { NavLink } from 'react-router';
 import { Card } from '../card';
 import styles from './navigation-menu.module.css';
@@ -12,9 +12,9 @@ export function NavigationMenu() {
           <p className="text-sm">Pagamentos</p>
         </NavListItem>
 
-        <NavListItem to="/dashboard">
-          <ChartLineUpIcon size={20} weight="light" />
-          <p className="text-sm">Dashboard</p>
+        <NavListItem to="/teams">
+          <UsersIcon size={20} weight="light" />
+          <p className="text-sm">Times</p>
         </NavListItem>
 
         <NavListItem to="/profile">
