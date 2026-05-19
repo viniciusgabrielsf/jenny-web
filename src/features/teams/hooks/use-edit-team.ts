@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { teamsClient, type EditTeamRequest } from '../api/teams-client';
 
-export const useEditTeam = (onOpenChange?: (open: boolean) => void) => {
+export const useEditTeam = (onClose?: () => void) => {
   const queryClient = useQueryClient();
 
   const editTeamMutation = useMutation({
@@ -16,7 +16,7 @@ export const useEditTeam = (onOpenChange?: (open: boolean) => void) => {
       toast.dismiss('edit-team-loading');
       toast.success('Time editado com sucesso!', { id: 'edit-team-success' });
       queryClient.invalidateQueries({ queryKey: ['teams'] });
-      onOpenChange?.(false);
+      onClose?.();
     },
     onError: (error: Error) => {
       toast.dismiss('edit-team-loading');

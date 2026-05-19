@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { teamsClient } from '../api/teams-client';
 
-export const useDeleteTeam = (onOpenChange?: (open: boolean) => void) => {
+export const useDeleteTeam = (onClose?: () => void) => {
   const queryClient = useQueryClient();
 
   const deleteTeamMutation = useMutation({
@@ -16,7 +16,7 @@ export const useDeleteTeam = (onOpenChange?: (open: boolean) => void) => {
       toast.dismiss('delete-team-loading');
       toast.success('Time excluído com sucesso!', { id: 'delete-team-success' });
       queryClient.invalidateQueries({ queryKey: ['teams'] });
-      onOpenChange?.(false);
+      onClose?.();
     },
     onError: (error: Error) => {
       toast.dismiss('delete-team-loading');
