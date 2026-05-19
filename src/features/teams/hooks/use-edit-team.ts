@@ -1,8 +1,10 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { teamsClient, type EditTeamRequest } from '../api/teams-client';
 
 export const useEditTeam = () => {
+  const queryClient = useQueryClient();
+
   const editTeamMutation = useMutation({
     mutationKey: ['edit-team'],
     mutationFn: async (request: EditTeamRequest) => {
@@ -13,6 +15,7 @@ export const useEditTeam = () => {
     onSuccess: () => {
       toast.dismiss('edit-team-loading');
       toast.success('Time editado com sucesso!', { id: 'edit-team-success' });
+      queryClient.invalidateQueries({ queryKey: ['teams'] });
     },
     onError: (error: Error) => {
       toast.dismiss('edit-team-loading');
