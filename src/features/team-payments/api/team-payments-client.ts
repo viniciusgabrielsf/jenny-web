@@ -4,6 +4,7 @@ import type { IListOptions } from '@/api/interfaces';
 export type TeamPaymentsFilter = {
   userId: string;
   date: string;
+  teamId: string;
 };
 
 export type TeamPayment = {

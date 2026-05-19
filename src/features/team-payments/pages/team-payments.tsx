@@ -5,12 +5,12 @@ import { Page } from '@/components/pages/page';
 export const TeamPaymentsPage = () => {
   const { payments, pagination } = useTeamPaymentsPage();
 
-  if (payments.isLoading) {
+  if (payments.isPending) {
     return <p>Carregando pagamentos...</p>;
   }
 
-  if (payments.error) {
-    return <p>Erro ao carregar pagamentos: {payments.error.message}</p>;
+  if (payments.isError) {
+    return <p>Erro ao carregar pagamentos: {payments.error?.message}</p>
   }
 
   return (

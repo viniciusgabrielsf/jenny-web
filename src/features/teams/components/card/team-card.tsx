@@ -1,4 +1,4 @@
-import { Card, CardContent } from '@/components/card';
+import { Card, CardAction, CardContent } from '@/components/card';
 import { Avatar, AvatarFallback, AvatarImage, AvatarGroup } from '@/components/avatar';
 import { Button } from '@/components/button';
 import { EllipsisVerticalIcon } from 'lucide-react';
@@ -27,17 +27,12 @@ export const TeamCard = ({ team, onClick }: Props) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   return (
-    <Card className="group hover:shadow-md transition-shadow cursor-pointer h-full flex flex-col">
+    <Card className="group hover:shadow-md transition-shadow h-full flex flex-col gap-0 py-2">
       <CardContent className="p-4 sm:p-6 flex flex-col gap-4 flex-1">
         <div className="flex items-start justify-between gap-3">
-          <button
-            onClick={() => onClick(team)}
-            className="flex-1 text-left outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
-          >
-            <h3 className="text-base sm:text-lg font-semibold text-foreground transition-colors line-clamp-2">
-              {team.name}
-            </h3>
-          </button>
+          <h3 className="text-base sm:text-lg font-semibold text-foreground transition-colors line-clamp-2">
+            {team.name}
+          </h3>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -78,6 +73,10 @@ export const TeamCard = ({ team, onClick }: Props) => {
           </div>
         </div>
       </CardContent>
+
+      <CardAction className="w-full flex justify-end pr-2">
+        <Button onClick={() => onClick(team)}>Pagamentos</Button>
+      </CardAction>
 
       <EditTeamModal team={team} open={editModalOpen} onOpenChange={setEditModalOpen} />
       <DeleteTeamDialog team={team} open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen} />
