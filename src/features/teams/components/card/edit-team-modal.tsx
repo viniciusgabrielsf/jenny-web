@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const EditTeamModal = ({ team, open, onOpenChange }: Props) => {
-  const { editTeam } = useEditTeam();
+  const { editTeam } = useEditTeam(onOpenChange);
 
   const onSubmit = (value: TeamSchemaType) => {
     editTeam.mutate({

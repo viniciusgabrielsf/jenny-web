@@ -11,7 +11,7 @@ type Props = {
 
 export const DeleteTeamDialog = ({ open, team, onOpenChange }: Props) => {
   if (!team) return null;
-  const { deleteTeam } = useDeleteTeam();
+  const { deleteTeam } = useDeleteTeam(onOpenChange);
 
   const onSubmitDelete = () => {
     deleteTeam.mutate(team.id);

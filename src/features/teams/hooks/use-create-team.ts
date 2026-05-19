@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { teamsClient, type CreateTeamRequest } from '../api/teams-client';
 
-export const useCreateTeam = () => {
+export const useCreateTeam = (onOpenChange?: (open: boolean) => void) => {
   const queryClient = useQueryClient();
 
   const createTeamMutation = useMutation({
@@ -16,6 +16,7 @@ export const useCreateTeam = () => {
       toast.dismiss('create-team-loading');
       toast.success('Time criado com sucesso!', { id: 'create-team-success' });
       queryClient.invalidateQueries({ queryKey: ['teams'] });
+      onOpenChange?.(false);
     },
     onError: (error: Error) => {
       toast.dismiss('create-team-loading');
