@@ -1,5 +1,6 @@
 import { apiClient } from '@/api/client';
 import type { IListOptions } from '@/api/interfaces';
+import type { TeamMember } from '@/features/teams/api/teams-client';
 
 export type TeamPaymentsFilter = {
   payerId: string;
@@ -11,6 +12,7 @@ export type TeamPayment = {
   teamId: string;
   payerId: string;
   debtorsIds: string[];
+  debtors: TeamMember[];
   title: string;
   amount: number;
   paymentDate: string;

@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/dialog';
 import { PaymentForm } from './form/payment-form';
-import { useCreatePayment } from '../hooks/use-create-payment';
+import { useCreateTeamPayment } from '../hooks/use-create-team-payment';
 import { useUserStore } from '@/features/auth/stores/user-store';
 import type { PaymentSchemaType } from '../helpers/payment-schema';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const CreateTeamPaymentModal = ({ teamId, open, onOpenChange }: Props) => {
-  const { createPayment } = useCreatePayment(teamId, () => onOpenChange(false));
+  const { createPayment } = useCreateTeamPayment(teamId, () => onOpenChange(false));
   const user = useUserStore(state => state.user);
 
   const onSubmit = (value: PaymentSchemaType) => {
@@ -19,7 +19,7 @@ export const CreateTeamPaymentModal = ({ teamId, open, onOpenChange }: Props) =>
 
     createPayment.mutate({
       payerId: user.id,
-      debtorsIds: value.debtorsIds.map(debtor => debtor.id),
+      debtorsIds: value.debtors.map(debtor => debtor.id),
       title: value.title,
       amount: Math.round(value.amount * 100), // Convert decimal to cents
     });
@@ -38,7 +38,7 @@ export const CreateTeamPaymentModal = ({ teamId, open, onOpenChange }: Props) =>
           defaultValues={{
             title: '',
             amount: 0,
-            debtorsIds: [user],
+            debtors: [user],
           }}
         />
       </DialogContent>
