@@ -22,6 +22,11 @@ export type UserListResponse = {
   total: number;
 };
 
+export type UserFilter = {
+  teamId?: string;
+  search?: string;
+};
+
 export const userEndpoints = {
   SIGN_UP: '/users',
   ME: '/users/me',
@@ -31,6 +36,6 @@ export const userEndpoints = {
 export const userClient = {
   signUp: async (request: SignUpRequest) => apiClient.post(userEndpoints.SIGN_UP, request),
   me: async (): Promise<UserResponse> => apiClient.get<UserResponse>(userEndpoints.ME).then(response => response.data),
-  users: async (request: IListOptions<{ search?: string }>): Promise<UserListResponse> =>
+  users: async (request: IListOptions<UserFilter>): Promise<UserListResponse> =>
     apiClient.get<UserListResponse>(userEndpoints.USERS, { params: request }).then(response => response.data),
 };
