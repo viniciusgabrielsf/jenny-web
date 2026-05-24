@@ -11,6 +11,7 @@ export type TeamPayment = {
   id: string;
   teamId: string;
   payerId: string;
+  payer: TeamMember;
   debtorsIds: string[];
   debtors: TeamMember[];
   title: string;
