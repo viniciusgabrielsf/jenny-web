@@ -1,7 +1,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/dialog';
 import { Button } from '@/components/button';
 import type { TeamPayment } from '../api/team-payments-client';
-import { useDeletePayment } from '../hooks/use-delete-payment';
+import { useDeleteTeamPayment } from '../hooks/use-delete-team-payment';
 
 type Props = {
   teamId: string;
@@ -13,7 +13,7 @@ type Props = {
 export const DeletePaymentDialog = ({ teamId, payment, open, onOpenChange }: Props) => {
   if (!payment) return null;
 
-  const { deletePayment } = useDeletePayment(teamId, () => onOpenChange(false));
+  const { deletePayment } = useDeleteTeamPayment(teamId, () => onOpenChange(false));
 
   const onSubmitDelete = () => {
     deletePayment.mutate(payment.id);

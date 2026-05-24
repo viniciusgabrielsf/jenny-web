@@ -14,12 +14,11 @@ export const useTeamPaymentsPage = () => {
   // const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const trasactionsQuery = useQuery({
-    queryKey: ['teamPayments', { date, teamId }],
+    queryKey: ['team-payments', { date, teamId }],
     queryFn: async () => {
-      return teamPaymentsClient.getMyTeamPayments({
+      return teamPaymentsClient.getMyTeamPayments(teamId, {
         filter: {
           date: moment(date).format('YYYY-MM-DD'),
-          teamId,
         },
       });
     },

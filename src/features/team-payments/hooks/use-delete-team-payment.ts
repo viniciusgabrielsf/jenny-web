@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'sonner';
 import { teamPaymentsClient } from '../api/team-payments-client';
 
-export const useDeletePayment = (teamId: string, onClose?: () => void) => {
+export const useDeleteTeamPayment = (teamId: string, onClose?: () => void) => {
   const queryClient = useQueryClient();
 
   const deletePaymentMutation = useMutation({
