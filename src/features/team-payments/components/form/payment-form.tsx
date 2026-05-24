@@ -16,7 +16,7 @@ type Props = {
 export const PaymentForm = ({
   className = '',
   onSubmit,
-  defaultValues = { title: '', amount: 0, debtorsIds: [] },
+  defaultValues = { title: '', amount: 0, debtors: [] },
 }: Props) => {
   const form = useForm<PaymentSchemaType>({
     resolver: zodResolver(paymentSchema),
@@ -70,14 +70,14 @@ export const PaymentForm = ({
         />
 
         <Controller
-          name="debtorsIds"
+          name="debtors"
           control={form.control}
           render={({ field, fieldState }) => (
             <DebtorsCombobox
               field={field}
               fieldState={fieldState}
               setValue={(value: any[]) => {
-                form.setValue('debtorsIds', value);
+                form.setValue('debtors', value);
               }}
             />
           )}
