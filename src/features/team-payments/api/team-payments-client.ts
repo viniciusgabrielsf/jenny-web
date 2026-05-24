@@ -2,19 +2,18 @@ import { apiClient } from '@/api/client';
 import type { IListOptions } from '@/api/interfaces';
 
 export type TeamPaymentsFilter = {
-  userId: string;
+  payerId: string;
   date: string;
-  teamId: string;
 };
 
 export type TeamPayment = {
   id: string;
-  userId: string;
+  teamId: string;
+  payerId: string;
+  debtorsIds: string[];
   title: string;
   amount: number;
   paymentDate: string;
-  category: string;
-  status: string;
 };
 
 export type TeamPaymentsListResponse = {
@@ -22,13 +21,38 @@ export type TeamPaymentsListResponse = {
   total: number;
 };
 
+export type CreateTeamPaymentRequest = {
+  payerId: string;
+  debtorsIds: string[];
+  title: string;
+  amount: number;
+};
+
+export type EditTeamPaymentRequest = CreateTeamPaymentRequest & {
+  paymentId: string;
+};
+
 export const teamPaymentsEndpoints = {
-  GET_PAYMENTS: '/payments/me',
+  GET_PAYMENTS: (teamId: string) => `/teams/${teamId}/payments`,
+  CREATE_PAYMENT: (teamId: string) => `/teams/${teamId}/payments`,
+  EDIT_PAYMENT: (teamId: string, paymentId: string) => `/teams/${teamId}/payments/${paymentId}`,
+  DELETE_PAYMENT: (teamId: string, paymentId: string) => `/teams/${teamId}/payments/${paymentId}`,
 };
 
 export const teamPaymentsClient = {
-  getMyTeamPayments: async (request: IListOptions<TeamPaymentsFilter>): Promise<TeamPaymentsListResponse> =>
+  getMyTeamPayments: async (
+    teamId: string,
+    request: IListOptions<TeamPaymentsFilter>
+  ): Promise<TeamPaymentsListResponse> =>
     apiClient
-      .get<TeamPaymentsListResponse>(teamPaymentsEndpoints.GET_PAYMENTS, { params: request })
+      .get<TeamPaymentsListResponse>(teamPaymentsEndpoints.GET_PAYMENTS(teamId), { params: request })
       .then(response => response.data),
+  createPayment: async (teamId: string, request: CreateTeamPaymentRequest): Promise<TeamPayment> =>
+    apiClient.post<TeamPayment>(teamPaymentsEndpoints.CREATE_PAYMENT(teamId), request).then(response => response.data),
+  editPayment: async (teamId: string, request: EditTeamPaymentRequest): Promise<TeamPayment> =>
+    apiClient
+      .patch<TeamPayment>(teamPaymentsEndpoints.EDIT_PAYMENT(teamId, request.paymentId), request)
+      .then(response => response.data),
+  deletePayment: async (teamId: string, paymentId: string): Promise<void> =>
+    apiClient.delete(teamPaymentsEndpoints.DELETE_PAYMENT(teamId, paymentId)).then(() => undefined),
 };
