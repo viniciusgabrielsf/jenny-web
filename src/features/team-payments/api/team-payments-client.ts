@@ -19,9 +19,16 @@ export type TeamPayment = {
   paymentDate: string;
 };
 
+export type Balance = {
+  from: TeamMember;
+  to: TeamMember;
+  amount: number;
+};
+
 export type TeamPaymentsListResponse = {
   items: TeamPayment[];
   total: number;
+  balances: Balance[];
 };
 
 export type CreateTeamPaymentRequest = {

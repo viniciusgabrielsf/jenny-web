@@ -25,6 +25,7 @@ export const useTeamPaymentsPage = () => {
     initialData: {
       items: [],
       total: 0,
+      balances: [],
     },
   });
 
