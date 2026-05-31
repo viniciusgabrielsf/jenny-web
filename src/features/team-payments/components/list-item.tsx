@@ -36,7 +36,7 @@ export const ListItem = ({ item, className, onEdit, onDelete }: Props) => {
 
   return (
     <article
-      className={`grid grid-cols-[1fr_2fr_3fr_1fr] sm:grid-cols-[1fr_5fr_3fr_1fr_5fr_1fr] gap-3 sm:gap-4 py-2 sm:py-3 items-center ${className}`}
+      className={`grid grid-cols-[1fr_2fr_3fr_1fr] sm:grid-cols-[1fr_5fr_3fr_2fr_5fr_1fr] gap-3 sm:gap-4 py-2 sm:py-3 items-center ${className}`}
     >
       <Avatar size="sm" format="circle" className="shrink-0" title={`Pago por ${item.payer?.fullName}`}>
         <AvatarImage
