@@ -9,6 +9,7 @@ import { DeletePaymentDialog } from '../components/delete-payment-dialog';
 import { useState } from 'react';
 import type { TeamPayment } from '../api/team-payments-client';
 import { useSearchParams } from 'react-router';
+import { Balances } from '../components/balances';
 
 export const TeamPaymentsPage = () => {
   const [searchParams] = useSearchParams();
@@ -59,6 +60,8 @@ export const TeamPaymentsPage = () => {
 
         <List items={payments.data.items} pagination={pagination} onEdit={handleEdit} onDelete={handleDelete} />
       </div>
+
+      <Balances balances={payments.data.balances} />
 
       <CreateTeamPaymentModal teamId={teamId} open={createModalOpen} onOpenChange={setCreateModalOpen} />
       {selectedPayment && (
