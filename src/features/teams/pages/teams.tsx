@@ -29,12 +29,7 @@ export const TeamsPage = () => {
           </Button>
         </div>
 
-        <TeamsList
-          teams={teams.data.items}
-          onTeamClick={() => {
-            console.log('click');
-          }}
-        />
+        <TeamsList teams={teams.data.items} />
       </div>
 
       <CreateTeamModal open={createModalOpen} onOpenChange={setCreateModalOpen} />
